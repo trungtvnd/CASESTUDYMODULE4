@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class HomeController {
@@ -25,9 +24,9 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String home(){
-        return "/template-home/home";
+        return "/template-view/index";
     }
-    @GetMapping("/user")
+    @GetMapping("/teacher")
     public String user(Model model){
         model.addAttribute("user", getPrincipal());
         return "/template-home/user";
@@ -35,7 +34,7 @@ public class HomeController {
     @GetMapping("/admin")
     public String admin(Model model){
         model.addAttribute("user", getPrincipal());
-        return "/template-home/admin";
+        return "/admin-home";
     }
 
     @GetMapping("/accessDenied")

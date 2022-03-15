@@ -3,7 +3,6 @@ package com.codegym.vn.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -12,10 +11,15 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String fullName;
+    private String email;
     private String username;
     private String password;
-    private String email;
+    private String rePassword;
+    private String phoneNumber;
+    private int birth;
+    private String address;
+    private String identify;
     @ManyToOne
-    @JoinColumn(name = "idrole")
     private Role role;
 }

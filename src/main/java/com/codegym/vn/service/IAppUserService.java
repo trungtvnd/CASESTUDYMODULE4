@@ -2,12 +2,22 @@ package com.codegym.vn.service;
 
 
 import com.codegym.vn.model.AppUser;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface IAppUserService extends UserDetailsService {
-    List<AppUser> getAll();
-    void save(AppUser appUser);
+    Iterable<AppUser> findAll();
+
+    AppUser save(AppUser appUser);
+
     void delete(Long id);
+
+    Page<AppUser> findPage(Pageable pageable);
+
+    Optional<AppUser> findById(Long id);
+
+    Iterable<AppUser>findByName(String name);
 }
